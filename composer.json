@@ -1,0 +1,21 @@
+{
+    "name": "majesko/anti-captcha",
+    "description": "Wrapper for anti-captcha service",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "authors": [
+        {
+            "name": "Majesko",
+            "email": "majesko@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AntiCaptcha\\": "src/AntiCaptcha"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    }
+}
