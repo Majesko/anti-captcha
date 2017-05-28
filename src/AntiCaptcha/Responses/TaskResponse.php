@@ -12,7 +12,11 @@ use Psr\Http\Message\ResponseInterface;
 class TaskResponse extends Response
 {
     protected $task_id;
-    
+
+    /**
+     * TaskResponse constructor.
+     * @param ResponseInterface $response
+     */
     public function __construct(ResponseInterface $response)
     {
         parent::__construct($response);

@@ -9,7 +9,6 @@ use AntiCaptcha\Traits\HelpersTrait;
  * @package AntiCaptcha\Tasks
  * 
  * Solve usual image captcha
- *
  */
 class ImageToTextTask extends Task
 {

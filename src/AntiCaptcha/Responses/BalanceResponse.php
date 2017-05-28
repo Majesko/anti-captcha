@@ -7,13 +7,15 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Class BalanceResponse
  * @package AntiCaptcha\Responses
- * 
- * @property string $balance
  */
 class BalanceResponse extends Response
 {
     protected $balance;
-    
+
+    /**
+     * BalanceResponse constructor.
+     * @param ResponseInterface $response
+     */
     public function __construct(ResponseInterface $response)
     {
         parent::__construct($response);

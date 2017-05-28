@@ -3,6 +3,7 @@
 namespace AntiCaptcha;
 
 use AntiCaptcha\Responses\QueueStatsResponse;
+use AntiCaptcha\Responses\Response;
 use AntiCaptcha\Responses\TaskResultResponse;
 use AntiCaptcha\Tasks\Task;
 use AntiCaptcha\Traits\HelpersTrait;
@@ -11,6 +12,10 @@ use AntiCaptcha\Responses\BalanceResponse;
 use AntiCaptcha\Responses\TaskResponse;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class Client
+ * @package AntiCaptcha
+ */
 class Client
 {
     use HelpersTrait;
@@ -32,7 +37,14 @@ class Client
         $this->language_pool = $this->array_get($options, 'lang') ?: $this->language_pool;
         $this->client = new HttpClient($config);
     }
-    
+
+    /**
+     * Makes api request
+     *
+     * @param string $action
+     * @param array $params
+     * @return ResponseInterface
+     */
     private function requestApi(string $action, array $params = []): ResponseInterface
     {
         $default_params = [
@@ -44,7 +56,14 @@ class Client
             'json' => $request_params
         ]);
     }
-    
+
+    /**
+     * Creates a task for solving selected captcha type
+     *
+     * @param Task $task
+     * @param string|null $soft_id
+     * @return TaskResponse
+     */
     public function createTask(Task $task, string $soft_id = null): TaskResponse
     {
         $request_params = [
@@ -55,13 +74,24 @@ class Client
         
         return new TaskResponse($this->requestApi('createTask', $request_params));
     }
-    
-    public function getBalance()
+
+    /**
+     * Retrieves account balance
+     *
+     * @return BalanceResponse
+     */
+    public function getBalance(): BalanceResponse
     {
         return new BalanceResponse($this->requestApi('getBalance'));
     }
-    
-    public function getTaskResult(string $task_id)
+
+    /**
+     * Requests task result
+     *
+     * @param string $task_id
+     * @return TaskResultResponse
+     */
+    public function getTaskResult(string $task_id): TaskResultResponse
     {
         $request_params = [
             'taskId' => $task_id,
@@ -69,8 +99,14 @@ class Client
         
         return new TaskResultResponse($this->requestApi('getTaskResult', $request_params));
     }
-    
-    public function getQueueStats(int $queue_id)
+
+    /**
+     * Allows to define if it is suitable time to upload new task. Results are cached for 10 seconds
+     *
+     * @param int $queue_id
+     * @return QueueStatsResponse
+     */
+    public function getQueueStats(int $queue_id): QueueStatsResponse
     {
         $request_params = [
             'queueId' => $queue_id

@@ -2,6 +2,7 @@
     "name": "majesko/anti-captcha",
     "description": "Wrapper for anti-captcha service",
     "require": {
+        "php": ">=7.0.0",
         "guzzlehttp/guzzle": "^6.2"
     },
     "authors": [

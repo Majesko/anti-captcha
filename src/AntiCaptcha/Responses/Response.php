@@ -8,11 +8,6 @@ use AntiCaptcha\Traits\HelpersTrait;
 /**
  * Class Response
  * @package AntiCaptcha\Responses
- * 
- * @property integer $error_id
- * @property string $error_code
- * @property string $error_description
- * @property array $response_body
  */
 abstract class Response
 {
@@ -22,7 +17,11 @@ abstract class Response
     protected $error_code;
     protected $error_description;
     protected $response_body;
-    
+
+    /**
+     * Response constructor.
+     * @param ResponseInterface $response
+     */
     public function __construct(ResponseInterface $response)
     {
         $this->response_body = \GuzzleHttp\json_decode($response->getBody(), true);

@@ -24,7 +24,8 @@ abstract class Task
         return $this->type;
     }
     
-    public function getPropsAsArray(): array {
+    public function getPropsAsArray(): array
+    {
         $props = [];
         foreach (get_object_vars($this) as $key => $var) {
             $props[$key] = $var;

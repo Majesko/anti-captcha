@@ -9,20 +9,11 @@
 namespace AntiCaptcha\Responses;
 
 use AntiCaptcha\Solutions\ImageToTextSolution;
-use AntiCaptcha\Solutions\Solution;
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class TaskResultResponse
  * @package AntiCaptcha\Responses
- * 
- * @property string $status
- * @property string $solution
- * @property string $cost
- * @property string $ip
- * @property string $create_time
- * @property string $end_time
- * @property string $solve_count
  */
 class TaskResultResponse extends Response
 {
@@ -33,7 +24,11 @@ class TaskResultResponse extends Response
     protected $create_time;
     protected $end_time;
     protected $solve_count;
-    
+
+    /**
+     * TaskResultResponse constructor.
+     * @param ResponseInterface $response
+     */
     public function __construct(ResponseInterface $response)
     {
         parent::__construct($response);

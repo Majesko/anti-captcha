@@ -4,13 +4,21 @@ namespace AntiCaptcha\Solutions;
 
 use AntiCaptcha\Traits\HelpersTrait;
 
+/**
+ * Class ImageToTextSolution
+ * @package AntiCaptcha\Solutions
+ */
 class ImageToTextSolution extends Solution
 {
     use HelpersTrait;
     
     protected $text;
     protected $url;
-    
+
+    /**
+     * ImageToTextSolution constructor.
+     * @param array $response
+     */
     function __construct(array $response)
     {
         $this->text = $this->array_get($response, 'text');

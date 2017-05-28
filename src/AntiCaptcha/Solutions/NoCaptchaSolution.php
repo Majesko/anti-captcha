@@ -4,6 +4,10 @@ namespace AntiCaptcha\Solutions;
 
 use AntiCaptcha\Traits\HelpersTrait;
 
+/**
+ * Class NoCaptchaSolution
+ * @package AntiCaptcha\Solutions
+ */
 class NoCaptchaSolution extends Solution
 {
     use HelpersTrait;

@@ -4,6 +4,10 @@ namespace AntiCaptcha\Responses;
 
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class QueueStatsResponse
+ * @package AntiCaptcha\Responses
+ */
 class QueueStatsResponse extends Response
 {   
     protected $waiting;
@@ -11,7 +15,11 @@ class QueueStatsResponse extends Response
     protected $bid;
     protected $speed;
     protected $total;
-    
+
+    /**
+     * QueueStatsResponse constructor.
+     * @param ResponseInterface $response
+     */
     public function __construct(ResponseInterface $response)
     {
         parent::__construct($response);
