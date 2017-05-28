@@ -4,6 +4,11 @@ namespace AntiCaptcha\Tasks;
 
 use AntiCaptcha\Traits\HelpersTrait;
 
+/**
+ * Class Task
+ * @package AntiCaptcha\Tasks
+ *
+ */
 abstract class Task
 {
     use HelpersTrait;
@@ -19,5 +24,12 @@ abstract class Task
         return $this->type;
     }
     
-    abstract public function getPropsAsArray(): array;
+    public function getPropsAsArray(): array {
+        $props = [];
+        foreach (get_object_vars($this) as $key => $var) {
+            $props[$key] = $var;
+        }
+        
+        return $props;
+    }
 }

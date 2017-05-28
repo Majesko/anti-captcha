@@ -38,47 +38,85 @@ class TaskResultResponse extends Response
     {
         parent::__construct($response);
         $this->status = $this->array_get($this->response_body, 'status');
-        $this->cost = $this->array_get($this->response_body, 'cost');
+        $this->cost = (double) $this->array_get($this->response_body, 'cost');
         $this->ip = $this->array_get($this->response_body, 'ip');
-        $this->create_time = $this->array_get($this->response_body, 'createTime');
-        $this->end_time = $this->array_get($this->response_body, 'endTime');
-        $this->solve_count = $this->array_get($this->response_body, 'solveCount');
+        $this->create_time = (integer) $this->array_get($this->response_body, 'createTime');
+        $this->end_time = (integer) $this->array_get($this->response_body, 'endTime');
+        $this->solve_count = (integer) $this->array_get($this->response_body, 'solveCount');
         $this->solution = $this->status == 'ready' 
             ? new ImageToTextSolution($this->array_get($this->response_body, 'solution')) 
             : null;
     }
-    
+
+    /**
+     * Status of the task
+     * 
+     * processing - task is not ready yet
+     * ready - task complete, solution object can be found in solution property
+     * 
+     * @return string
+     */
     public function getStatus(): string
     {
         return $this->status;
     }
-    
-    public function getSolution()
+
+    /**
+     * Task result data
+     * 
+     * @return ImageToTextSolution|null
+     */
+    public function getSolution(): ?ImageToTextSolution
     {
         return $this->solution;
     }
-    
-    public function getCost()
+
+    /**
+     * Task cost in USD
+     * 
+     * @return double
+     */
+    public function getCost(): double 
     {
         return $this->cost;
     }
-    
-    public function getIp()
+
+    /**
+     * IP from which the task was created
+     * 
+     * @return string
+     */
+    public function getIp(): string
     {
         return $this->ip;
     }
-    
-    public function getCreateTime()
+
+    /**
+     * UNIX Timestamp of task creation
+     * 
+     * @return int
+     */
+    public function getCreateTime(): int 
     {
         return $this->create_time;
     }
-    
-    public function getEndTime()
+
+    /**
+     * UNIX Timestamp of task completion
+     * 
+     * @return int
+     */
+    public function getEndTime(): int 
     {
         return $this->end_time;
     }
-    
-    public function getSolveCount()
+
+    /**
+     * Number of workers who tried to complete your task
+     * 
+     * @return int
+     */
+    public function getSolveCount(): int
     {
         return $this->solve_count;
     }

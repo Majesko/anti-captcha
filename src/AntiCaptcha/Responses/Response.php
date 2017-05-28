@@ -30,17 +30,37 @@ abstract class Response
         $this->error_code = $this->array_get($this->response_body, 'errorCode');
         $this->error_description = $this->array_get($this->response_body, 'errorDescription');
     }
-    
+
+    /**
+     * Error identificator.
+     * 
+     * 0 - no errors, the task has been successfully created, task ID located in taskId property
+     * >1 - error identificator. Error code and short information transferred in errorCode and errorDescription properties
+     * 
+     * @return int
+     */
     public function getErrorId(): int 
     {
         return $this->error_id;
     }
-    
+
+    /**
+     * Error code
+     * 
+     * Refer to: https://anticaptcha.atlassian.net/wiki/display/API/Errors for more details
+     * 
+     * @return string
+     */
     public function getErrorCode(): string
     {
         return $this->error_code;
     }
-    
+
+    /**
+     * Error description
+     * 
+     * @return string
+     */
     public function getErrorDescription(): string
     {
         return $this->error_description;

@@ -8,8 +8,6 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Class TaskResponse
  * @package AntiCaptcha\Responses
- * 
- * @property integer $task_id
  */
 class TaskResponse extends Response
 {
@@ -20,7 +18,12 @@ class TaskResponse extends Response
         parent::__construct($response);
         $this->task_id = (integer) $this->array_get($this->response_body, 'taskId');
     }
-    
+
+    /**
+     * Task ID for future use in getTaskResult method
+     * 
+     * @return int
+     */
     public function getTaskId(): int 
     {
         return $this->task_id;

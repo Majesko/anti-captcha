@@ -16,13 +16,23 @@ class ImageToTextSolution extends Solution
         $this->text = $this->array_get($response, 'text');
         $this->url = $this->array_get($response, 'url');
     }
-    
-    public function getText()
+
+    /**
+     * Captcha answer
+     * 
+     * @return string
+     */
+    public function getText(): string
     {
         return $this->text;
     }
-    
-    public function getUrl()
+
+    /**
+     * Web address where captcha file can be downloaded. Available withing 48 hours after task creation
+     * 
+     * @return string
+     */
+    public function getUrl(): string 
     {
         return $this->url;
     }

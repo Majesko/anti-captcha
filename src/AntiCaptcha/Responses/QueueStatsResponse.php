@@ -15,33 +15,58 @@ class QueueStatsResponse extends Response
     public function __construct(ResponseInterface $response)
     {
         parent::__construct($response);
-        $this->waiting = (float) $this->array_get($this->response_body, 'waiting');
-        $this->load = $this->array_get($this->response_body, 'load');
-        $this->bid = $this->array_get($this->response_body, 'bid');
-        $this->speed = $this->array_get($this->response_body, 'speed');
-        $this->total = $this->array_get($this->response_body, 'total');
+        $this->waiting = (integer) $this->array_get($this->response_body, 'waiting');
+        $this->load = (float) $this->array_get($this->response_body, 'load');
+        $this->bid = (float) $this->array_get($this->response_body, 'bid');
+        $this->speed = (float) $this->array_get($this->response_body, 'speed');
+        $this->total = (integer) $this->array_get($this->response_body, 'total');
     }
-    
-    public function getWaiting()
+
+    /**
+     * Amount of idle workers online, waiting for a task
+     * 
+     * @return int
+     */
+    public function getWaiting(): int 
     {
         return $this->waiting;
     }
-    
-    public function getLoad()
+
+    /**
+     * Queue load in percents
+     * 
+     * @return float
+     */
+    public function getLoad(): float 
     {
         return $this->load;
     }
-    
-    public function getBid()
+
+    /**
+     * Average task solution cost in USD
+     * 
+     * @return float
+     */
+    public function getBid(): float
     {
         return $this->bid;
     }
-    
-    public function getSpeed()
+
+    /**
+     * Average task solution speed in seconds
+     * 
+     * @return float
+     */
+    public function getSpeed(): float
     {
         return $this->speed;
     }
-    
+
+    /**
+     * Total number of workers
+     * 
+     * @return int
+     */
     public function getTotal()
     {
         return $this->total;

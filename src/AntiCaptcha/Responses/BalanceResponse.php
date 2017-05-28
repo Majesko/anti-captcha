@@ -19,7 +19,12 @@ class BalanceResponse extends Response
         parent::__construct($response);
         $this->balance = (float) $this->array_get($this->response_body, 'balance');
     }
-    
+
+    /**
+     * Account balance value
+     * 
+     * @return float
+     */
     public function getBalance(): float 
     {
         return $this->balance;
