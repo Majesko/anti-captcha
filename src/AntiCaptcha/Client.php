@@ -49,6 +49,7 @@ class Client
      *
      * @param string $action
      * @param array $params
+     * @param array $options
      * @return ResponseInterface
      */
     private function requestApi(string $action, array $params = [], array $options = []): ResponseInterface
