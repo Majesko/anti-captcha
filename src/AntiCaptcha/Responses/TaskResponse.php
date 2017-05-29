@@ -2,7 +2,6 @@
 
 namespace AntiCaptcha\Responses;
 
-
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -11,6 +10,11 @@ use Psr\Http\Message\ResponseInterface;
  */
 class TaskResponse extends Response
 {
+    /**
+     * Task ID for future use in getTaskResult method
+     * 
+     * @var int
+     */
     protected $task_id;
 
     /**
@@ -24,7 +28,7 @@ class TaskResponse extends Response
     }
 
     /**
-     * Task ID for future use in getTaskResult method
+     * Returns task ID for future use in getTaskResult method
      * 
      * @return int
      */

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: majesko
- * Date: 27.05.17
- * Time: 21:09
- */
 
 namespace AntiCaptcha\Responses;
 
@@ -17,12 +11,51 @@ use Psr\Http\Message\ResponseInterface;
  */
 class TaskResultResponse extends Response
 {
+    /**
+     * Task status processing|ready
+     * 
+     * @var string|null
+     */
     protected $status;
+
+    /**
+     * Task result data
+     * 
+     * @var ImageToTextSolution|null
+     */
     protected $solution;
+
+    /**
+     * Task cost in USD
+     * 
+     * @var float
+     */
     protected $cost;
+
+    /**
+     * IP from which the task was created
+     * 
+     * @var string|null
+     */
     protected $ip;
+
+    /**
+     * UNIX Timestamp of task creation
+     * 
+     * @var int
+     */
     protected $create_time;
+
+    /**
+     * UNIX Timestamp of task completion
+     * @var int
+     */
     protected $end_time;
+
+    /**
+     * Number of workers who tried to complete your task
+     * @var int
+     */
     protected $solve_count;
 
     /**

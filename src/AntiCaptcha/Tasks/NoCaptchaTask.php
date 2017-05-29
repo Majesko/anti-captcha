@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: majesko
- * Date: 28.05.17
- * Time: 0:09
- */
 
 namespace AntiCaptcha\Tasks;
 

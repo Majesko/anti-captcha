@@ -11,8 +11,17 @@ use AntiCaptcha\Traits\HelpersTrait;
 class ImageToTextSolution extends Solution
 {
     use HelpersTrait;
-    
+
+    /**
+     * Captcha answer
+     * @var string|null
+     */
     protected $text;
+
+    /**
+     * Web address where captcha file can be downloaded. Available withing 48 hours after task creation
+     * @var string|null
+     */
     protected $url;
 
     /**

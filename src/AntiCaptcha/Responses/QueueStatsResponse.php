@@ -9,11 +9,35 @@ use Psr\Http\Message\ResponseInterface;
  * @package AntiCaptcha\Responses
  */
 class QueueStatsResponse extends Response
-{   
+{
+    /**
+     * Amount of idle workers online, waiting for a task
+     * @var int
+     */
     protected $waiting;
+
+    /**
+     * Queue load in percents
+     * @var float
+     */
     protected $load;
+
+    /**
+     * Average task solution cost in USD
+     * @var float
+     */
     protected $bid;
+
+    /**
+     * Average task solution speed in seconds
+     * @var float
+     */
     protected $speed;
+
+    /**
+     * Total number of workers
+     * @var int
+     */
     protected $total;
 
     /**
@@ -32,7 +56,6 @@ class QueueStatsResponse extends Response
 
     /**
      * Amount of idle workers online, waiting for a task
-     * 
      * @return int
      */
     public function getWaiting(): int 
@@ -42,7 +65,6 @@ class QueueStatsResponse extends Response
 
     /**
      * Queue load in percents
-     * 
      * @return float
      */
     public function getLoad(): float 
@@ -52,7 +74,6 @@ class QueueStatsResponse extends Response
 
     /**
      * Average task solution cost in USD
-     * 
      * @return float
      */
     public function getBid(): float
@@ -62,7 +83,6 @@ class QueueStatsResponse extends Response
 
     /**
      * Average task solution speed in seconds
-     * 
      * @return float
      */
     public function getSpeed(): float
@@ -72,7 +92,6 @@ class QueueStatsResponse extends Response
 
     /**
      * Total number of workers
-     * 
      * @return int
      */
     public function getTotal()
