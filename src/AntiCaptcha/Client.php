@@ -96,6 +96,7 @@ class Client
      * Requests task result
      *
      * @param string $task_id
+     * @param array $options
      * @return TaskResultResponse
      */
     public function getTaskResult(string $task_id, array $options = []): TaskResultResponse
