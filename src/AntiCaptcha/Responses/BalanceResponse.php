@@ -10,6 +10,10 @@ use Psr\Http\Message\ResponseInterface;
  */
 class BalanceResponse extends Response
 {
+    /**
+     * Account balance value
+     * @var float
+     */
     protected $balance;
 
     /**

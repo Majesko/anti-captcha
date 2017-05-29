@@ -16,7 +16,11 @@ abstract class Task
     const IMAGE_TO_TEXT_TASK = 'ImageToTextTask';
     const NO_CAPTCHA_TASK = 'NoCaptchaTask';
     const NO_CAPTCHA_TASK_PROXYLESS = 'NoCaptchaTaskProxyless';
-    
+
+    /**
+     * Defines type of the task
+     * @var string
+     */
     protected $type;
 
     public function getType(): string 

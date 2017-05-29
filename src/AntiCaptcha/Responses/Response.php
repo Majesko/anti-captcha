@@ -12,10 +12,29 @@ use AntiCaptcha\Traits\HelpersTrait;
 abstract class Response
 {
     use HelpersTrait;
-    
+
+    /**
+     * Error identificator
+     * @var int
+     */
     protected $error_id;
+    
+    /**
+     * Error code
+     * @var string|null
+     */
     protected $error_code;
+    
+    /**
+     * Short information describing error
+     * @var string|null
+     */
     protected $error_description;
+
+    /**
+     * Api response array
+     * @var array
+     */
     protected $response_body;
 
     /**
@@ -31,7 +50,7 @@ abstract class Response
     }
 
     /**
-     * Error identificator.
+     * Returns error identificator.
      * 
      * 0 - no errors, the task has been successfully created, task ID located in taskId property
      * >1 - error identificator. Error code and short information transferred in errorCode and errorDescription properties
@@ -44,7 +63,7 @@ abstract class Response
     }
 
     /**
-     * Error code
+     * Returns error code
      * 
      * Refer to: https://anticaptcha.atlassian.net/wiki/display/API/Errors for more details
      * 
@@ -56,7 +75,7 @@ abstract class Response
     }
 
     /**
-     * Error description
+     * Returns error description
      * 
      * @return string
      */

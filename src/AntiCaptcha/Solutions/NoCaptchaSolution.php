@@ -11,8 +11,17 @@ use AntiCaptcha\Traits\HelpersTrait;
 class NoCaptchaSolution extends Solution
 {
     use HelpersTrait;
-    
+
+    /**
+     * Hash string which is required for interacting with submit form on target website
+     * @var string|null
+     */
     protected $g_recaptcha_response;
+
+    /**
+     * Control sum of gRecaptchaResponse value in MD5
+     * @var string|null
+     */
     protected $g_recaptcha_response_MD5;
     
     public function __construct(array $response)
